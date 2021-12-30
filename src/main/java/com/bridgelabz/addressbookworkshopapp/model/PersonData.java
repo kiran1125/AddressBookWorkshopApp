@@ -38,5 +38,16 @@ public @Data class PersonData {
         this.city = personDTO.getCity();
         this.country = personDTO.getCountry();
     }
+
+    public void updatePersonData(PersonDTO personDTO) {
+        this.firstName = personDTO.getFirstName();
+        this.lastName = personDTO.getLastName();
+        this.gender = personDTO.getGender();
+        this.phoneNumber = personDTO.getPhoneNumber();
+        this.email = personDTO.getEmail();
+        this.address = personDTO.getAddress();
+        this.city = personDTO.getCity();
+        this.country = personDTO.getCountry();
+    }
     
 }

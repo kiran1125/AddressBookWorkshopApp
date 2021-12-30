@@ -1,10 +1,13 @@
 package com.bridgelabz.addressbookworkshopapp.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 /**
  * This class is to take the user input of these Variables or Attributes
  */
-public @Data class PersonDTO {
+@Data
+@AllArgsConstructor
+public class PersonDTO {
     private int id;
     private String firstName;
     private String lastName;
