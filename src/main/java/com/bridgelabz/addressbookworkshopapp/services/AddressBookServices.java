@@ -33,7 +33,11 @@ public class AddressBookServices implements IAddressBookServices{
 
     @Override
     public PersonData getPersonDataById(int id) {
+<<<<<<< HEAD
         return addressBookRepository.findById(id).orElseThrow(()-> new RuntimeException());
+=======
+        return addressBookRepository.findById(id);
+>>>>>>> 4dc8d5e7db25153c44e9906ad66a4ff23ef95498
     }
 
     /**
