@@ -34,7 +34,7 @@ public class AddressBookServices implements IAddressBookServices{
 
     @Override
     public PersonData getPersonDataById(int id) {
-        return employeePayRollRepository.findById(id);
+        return addressBookRepository.findById(id);
     }
 
     /**
