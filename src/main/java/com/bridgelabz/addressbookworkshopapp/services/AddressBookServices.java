@@ -3,7 +3,6 @@ package com.bridgelabz.addressbookworkshopapp.services;
 import java.util.List;
 
 import com.bridgelabz.addressbookworkshopapp.dto.PersonDTO;
-import com.bridgelabz.addressbookworkshopapp.exceptions.AddressBookException;
 import com.bridgelabz.addressbookworkshopapp.model.PersonData;
 import com.bridgelabz.addressbookworkshopapp.repository.AddressBookRepository;
 
@@ -34,7 +33,7 @@ public class AddressBookServices implements IAddressBookServices{
 
     @Override
     public PersonData getPersonDataById(int id) {
-        return addressBookRepository.findById(id).orElseThrow(()-> new AddressBookException("Person not found"));
+        return addressBookRepository.findById(id).orElseThrow(()-> new RuntimeException());
     }
 
     /**
