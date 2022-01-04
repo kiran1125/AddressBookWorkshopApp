@@ -1,11 +1,11 @@
 package com.bridgelabz.addressbookworkshopapp.repository;
 
-import com.bridgelabz.addressbookworkshopapp.model.PersonData;
+import com.bridgelabz.addressbookworkshopapp.model.AddressBookData;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface AddressBookRepository extends JpaRepository<PersonData,Integer> {
+public interface MultipleAddressBookRepo extends JpaRepository<AddressBookData,Integer> {
     
 }
