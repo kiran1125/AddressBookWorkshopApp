@@ -1,8 +1,13 @@
 package com.bridgelabz.addressbookworkshopapp.model;
 
+import java.io.Serializable;
+import java.util.Optional;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.bridgelabz.addressbookworkshopapp.dto.PersonDTO;
@@ -32,7 +37,7 @@ public @Data class PersonData {
     @Column(name = "Gender")
     private String gender;
     @Column(name = "PhoneNumber")
-    private long phoneNumber;
+    private String phoneNumber;
     @Column(name = "Email")
     private String email;
     @Column(name = "Address")
@@ -41,6 +46,10 @@ public @Data class PersonData {
     private String city;
     @Column(name = "Country")
     private String country;
+
+    @ManyToOne
+    @JoinColumn(name = "f_id" , referencedColumnName = "aId")
+    private AddressBookData addressBookData;
 
     /**
      * This method is to Assign the data
