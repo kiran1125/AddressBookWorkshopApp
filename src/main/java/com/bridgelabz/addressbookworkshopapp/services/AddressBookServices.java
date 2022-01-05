@@ -68,5 +68,9 @@ public class AddressBookServices implements IAddressBookServices{
         PersonData personData = this.getPersonDataById(id);
         addressBookRepository.delete(personData); 
     }
+    @Override
+    public PersonData getPersonDataByIdAndAId(int aId, int pId) {
+        return addressBookRepository.findByIdWithAddressBookId(aId, pId);
+    }
     
 }

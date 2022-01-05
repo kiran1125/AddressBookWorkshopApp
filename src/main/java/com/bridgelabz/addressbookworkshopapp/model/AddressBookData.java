@@ -14,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import com.bridgelabz.addressbookworkshopapp.dto.AddressBookDTO;
 
@@ -25,6 +26,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "addressbook_details")
 public class AddressBookData {
     
     @Id
@@ -33,12 +35,8 @@ public class AddressBookData {
     @Column
     private String addressBookName;
 
-    //@OneToMany(mappedBy = "addressBookData" , fetch = FetchType.EAGER , cascade = CascadeType.ALL)
-    //private List<PersonData> personList;
-
     public AddressBookData(AddressBookDTO addressBookDTO){
         this.addressBookName = addressBookDTO.getAddressBookName();
-        //this.personList = addressBookDTO.getPersonList();
     }
 
     public void updateAddressBookData(AddressBookDTO addressBookDTO) {

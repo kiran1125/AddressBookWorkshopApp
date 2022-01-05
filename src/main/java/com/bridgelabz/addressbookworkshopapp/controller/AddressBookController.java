@@ -92,6 +92,13 @@ public class AddressBookController {
 		return new ResponseEntity<ResponseDTO>(responseDTO,HttpStatus.OK);
 	}
 
+    @GetMapping("/by/{aId}/{pId}")
+    public ResponseEntity<ResponseDTO> getAddressBookByIdAndAId(@PathVariable("aId") int aId , @PathVariable("pId") int pId){
+		PersonData personData = addressBookServices.getPersonDataByIdAndAId(aId,pId);
+		ResponseDTO responseDTO = new ResponseDTO("Get data By Id is Successfull", personData);
+		return new ResponseEntity<ResponseDTO>(responseDTO,HttpStatus.OK);
+	}
+
     
 
 

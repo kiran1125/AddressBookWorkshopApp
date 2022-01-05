@@ -16,5 +16,7 @@ public interface IAddressBookServices {
     PersonData updatePersonData(int id, PersonDTO personDTO);
 
     void deletePersonData(int id);
+
+    PersonData getPersonDataByIdAndAId(int aId, int pId);
     
 }

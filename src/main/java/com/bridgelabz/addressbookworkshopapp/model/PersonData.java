@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
  * which is used to store data in the repository
  */
 @Entity
-@Table(name = "addressbook_data")
+@Table(name = "person_details")
 @AllArgsConstructor
 @NoArgsConstructor
 public @Data class PersonData {
@@ -48,13 +48,8 @@ public @Data class PersonData {
     private String country;
 
     @ManyToOne
-    @JoinColumn(name = "f_id" , referencedColumnName = "aId")
+    @JoinColumn(name = "ab_id" , referencedColumnName = "aId")
     private AddressBookData addressBookData;
-
-    /**
-     * This method is to Assign the data
-     * @param personDTO
-     */
 
     public PersonData(PersonDTO personDTO){
         this.id = personDTO.getId();
