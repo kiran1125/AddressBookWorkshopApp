@@ -2,6 +2,8 @@ package com.bridgelabz.addressbookworkshopapp.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import com.bridgelabz.addressbookworkshopapp.dto.PersonDTO;
 import com.bridgelabz.addressbookworkshopapp.dto.ResponseDTO;
 import com.bridgelabz.addressbookworkshopapp.model.PersonData;
@@ -59,7 +61,7 @@ public class AddressBookController {
      * @return ResponseEntity : with person data and Status code
      */
     @PostMapping("/post")
-	public ResponseEntity<ResponseDTO> addingPerson(@RequestBody PersonDTO personDTO){
+	public ResponseEntity<ResponseDTO> addingPerson(@Valid @RequestBody PersonDTO personDTO){
 		PersonData personData = addressBookServices.addPersonData(personDTO);
 		ResponseDTO responseDTO = new ResponseDTO("post data is Successful", personData);
 		return new ResponseEntity<ResponseDTO>(responseDTO,HttpStatus.OK);
@@ -72,7 +74,7 @@ public class AddressBookController {
       * @return ResponseEntity : with person data and Status code
       */
     @PutMapping("/put/{id}")
-	public ResponseEntity<ResponseDTO> updatingPerson(@PathVariable("id") int id,@RequestBody PersonDTO personDTO){
+	public ResponseEntity<ResponseDTO> updatingPerson(@PathVariable("id") int id,@Valid @RequestBody PersonDTO personDTO){
 		
 		PersonData personData = addressBookServices.updatePersonData(id,personDTO);
 		ResponseDTO responseDTO = new ResponseDTO("update data is Successful", personData);
@@ -90,6 +92,7 @@ public class AddressBookController {
 		return new ResponseEntity<ResponseDTO>(responseDTO,HttpStatus.OK);
 	}
 
+    
 
 
 

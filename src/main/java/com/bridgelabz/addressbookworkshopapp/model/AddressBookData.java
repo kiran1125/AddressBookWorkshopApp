@@ -25,7 +25,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class AddressBookData implements Serializable {
+public class AddressBookData {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,12 +33,12 @@ public class AddressBookData implements Serializable {
     @Column
     private String addressBookName;
 
-    @OneToMany(mappedBy = "addressBookData" , fetch = FetchType.EAGER , cascade = CascadeType.ALL)
-    private List<PersonData> personList;
+    //@OneToMany(mappedBy = "addressBookData" , fetch = FetchType.EAGER , cascade = CascadeType.ALL)
+    //private List<PersonData> personList;
 
     public AddressBookData(AddressBookDTO addressBookDTO){
         this.addressBookName = addressBookDTO.getAddressBookName();
-        this.personList = addressBookDTO.getPersonList();
+        //this.personList = addressBookDTO.getPersonList();
     }
 
     public void updateAddressBookData(AddressBookDTO addressBookDTO) {

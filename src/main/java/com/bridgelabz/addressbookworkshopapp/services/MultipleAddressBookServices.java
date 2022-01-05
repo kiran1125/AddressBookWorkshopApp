@@ -15,12 +15,18 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class MultipleAddressBookServices implements IMultipleAddressBookServices {
-
+    
+    //Dependency Injection
     @Autowired
     private MultipleAddressBookRepo multipleAddressBookRepo;
     @Autowired
     private AddressBookRepository addressBookRepository;
 
+    /**
+	 * This method is to add AddressBook to the data base
+	 * @param addressBookDTO
+	 * @return addressBookdata
+	 */
     @Override
     public AddressBookData addAddressBookData(AddressBookDTO addressBookDTO) {
         AddressBookData addressBookData = new AddressBookData(addressBookDTO);
@@ -28,6 +34,12 @@ public class MultipleAddressBookServices implements IMultipleAddressBookServices
         return addressBookData;
     }
 
+    /**
+	 * This method is to add person data into the data base with addressbook id
+	 * @param id
+	 * @param personDTO
+	 * @return person data
+	 */
     @Override
     public PersonData addPersonDataInAddressBook(int id,PersonDTO personDTO) {
         PersonData personData = new PersonData(personDTO);
@@ -36,16 +48,31 @@ public class MultipleAddressBookServices implements IMultipleAddressBookServices
         return addressBookRepository.save(personData);
     }
 
+    /**
+	 * This method is to get all the addressBookdata from the database
+	 * @return addressBookData
+	 */
     @Override
     public List<AddressBookData> getAddressBookData() {
         return multipleAddressBookRepo.findAll();
     }
 
+    /**
+	 * This method is to get the addressBookData from the database
+	 * @param aId
+	 * @return addressBookData
+	 */
     @Override
     public AddressBookData getPersonDataFromAddressBook(int aId) {
         return multipleAddressBookRepo.findById(aId).get();
     }
 
+    /**
+	 * This method is to update the addressBookData using aId
+	 * @param aId
+	 * @param addressBookDTO
+	 * @return addressBookData
+	 */
     @Override
     public AddressBookData updateAddressBookData(int aId, AddressBookDTO addressBookDTO) {
         AddressBookData addressBookData = this.getPersonDataFromAddressBook(aId);
@@ -53,6 +80,10 @@ public class MultipleAddressBookServices implements IMultipleAddressBookServices
 		return multipleAddressBookRepo.save(addressBookData);
     }
 
+    /**
+	 * This method is to delete the addressBookData
+	 * @param addressbookId
+	 */
     @Override
     public void deleteAddressBookData(int addressbookId) {
         AddressBookData addressBookData = this.getPersonDataFromAddressBook(addressbookId);

@@ -25,7 +25,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "addressbook_data")
 @AllArgsConstructor
 @NoArgsConstructor
-public @Data class PersonData implements Serializable {
+public @Data class PersonData {
 
     //Attributes or properties for the Person
     @Id
@@ -37,7 +37,7 @@ public @Data class PersonData implements Serializable {
     @Column(name = "Gender")
     private String gender;
     @Column(name = "PhoneNumber")
-    private long phoneNumber;
+    private String phoneNumber;
     @Column(name = "Email")
     private String email;
     @Column(name = "Address")
@@ -48,7 +48,7 @@ public @Data class PersonData implements Serializable {
     private String country;
 
     @ManyToOne
-    @JoinColumn(name = "aId")
+    @JoinColumn(name = "f_id" , referencedColumnName = "aId")
     private AddressBookData addressBookData;
 
     /**

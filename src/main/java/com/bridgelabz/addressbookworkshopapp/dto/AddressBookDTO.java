@@ -1,9 +1,8 @@
 package com.bridgelabz.addressbookworkshopapp.dto;
 
-import java.util.ArrayList;
-import java.util.List;
 
-import com.bridgelabz.addressbookworkshopapp.model.PersonData;
+import javax.validation.constraints.Pattern;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,6 +13,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AddressBookDTO {
     
+    @Pattern(regexp = "^[a-zA-Z]{1,}" , message = "addressBookName is invalid")
     private String addressBookName;
-    private List<PersonData> personList = new ArrayList<>();
+
+    //private List<PersonData> personList = new ArrayList<>();
 }
